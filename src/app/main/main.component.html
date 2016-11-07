@@ -1,16 +1,47 @@
-<p>
+<!--<p>
 	main works!
-</p>
+</p>-->
 
-<div class="col-md-4">
-	<h4>Politics of US</h4>
+<div class="page-header">
+	<h2>美利堅合眾國政治體系 <small>Politics of USA</small></h2>
+</div>
 
+<div class="col-md-5">
+	<h3>行政(內閣) <small>Cabinet</small></h3>
 	<ul>
-		<li>
-			<img [src]="treeNode[0].imgPath" width="60px">
-			<input type="button" class="btn btn-default btn-lg" [value]="treeNode[0].name">
+		<li class="media" routerLink="" *ngFor="let node of cabinetTree">
+			<a class="media-left"><img [src]="node.imgPath" [width]="imgWidth"></a>
+			<div class="media-body">
+				<h4 class="media-heading">{{ node.name }}</h4>
+				{{ node.description }}
+			</div>
 		</li>
 	</ul>
 
+	<hr>
+
+	<h3>立法 <small>Congress</small></h3>
+	<ul>
+		<li class="media" routerLink="" *ngFor="let node of congressTree">
+			<a class="media-left"><img [src]="node.imgPath" [width]="imgWidth"></a>
+			<div class="media-body">
+				<h4 class="media-heading">{{ node.name }}</h4>
+				{{ node.description }}
+			</div>
+		</li>
+	</ul>
+
+	<hr>
+
+	<h3>司法 <small>Supreme Court</small></h3>
+	<ul>
+		<li class="media" routerLink="" *ngFor="let node of courtTree">
+			<a class="media-left"><img [src]="node.imgPath" [width]="imgWidth"></a>
+			<div class="media-body">
+				<h4 class="media-heading">{{ node.name }}</h4>
+				{{ node.description }}
+			</div>
+		</li>
+	</ul>
 
 </div>
