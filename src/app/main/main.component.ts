@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MainService } from './main.service';
-import { TreeNode } from './treeNode';
+import { TreeRoot, TreeNode } from './Trees';
 
 @Component({
   selector: 'app-main',
@@ -11,23 +11,19 @@ import { TreeNode } from './treeNode';
 })
 export class MainComponent implements OnInit {
 
-  mainserVice: MainService;
-
-  imgWidth: number;
+  mainService: MainService;
 
   constructor(_mainService: MainService) {
-    this.mainserVice = _mainService;
-    this.imgWidth = 40;
+    this.mainService = _mainService;
   }
 
-  cabinetTree: TreeNode[];
-  congressTree: TreeNode[];
-  courtTree: TreeNode[];
+  imgWidth: number;
+  treeRoot: TreeRoot[];
 
   ngOnInit() {
-
-    this.cabinetTree = this.mainserVice.getCabinetTree();
-    this.congressTree = this.mainserVice.getCongressTree();
-    this.courtTree = this.mainserVice.getCourtTree();
+    this.imgWidth = 40;
+    this.treeRoot = this.mainService.getTree();
   }
 }
+
+

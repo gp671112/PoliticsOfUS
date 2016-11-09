@@ -1,15 +1,29 @@
-import { TreeNode } from './treeNode';
 import { Injectable } from '@angular/core';
 
+import { TreeNode, TreeRoot } from './Trees';
 
 @Injectable()
 export class MainService {
 
-    cabinetTree: TreeNode[];
+    public getTree(): TreeRoot[] {
 
-    getCabinetTree(): TreeNode[] {
+        var cabinetTree: TreeNode[] = this.getCabinetTree();
+        var congressTree: TreeNode[] = this.getCongressTree();
+        var courtTree: TreeNode[] = this.getCourtTree();
 
-        this.cabinetTree = [
+        var treeRoot: TreeRoot[] = [
+            { title: '行政(內閣)', small: 'Cabinet', nodes: cabinetTree },
+            { title: '立法', small: 'Congress', nodes: congressTree },
+            { title: '司法', small: 'Supreme Court', nodes: courtTree },
+        ];
+
+        return treeRoot;
+    }
+
+    // 行政節點 
+    private getCabinetTree(): TreeNode[] {
+
+        var cabinetTree: TreeNode[] = [
             { imgPath: 'img/state.png', name: '國務院', description: '美國聯邦政府負責外交事務的行政部門。' },
             { imgPath: 'img/treasury.png', name: '財政部', description: '美國政府一個內閣部門，管理美國政府的收入。' },
             { imgPath: 'img/defense.png', name: '國防部', description: '主要負責統合國家安全與陸海空軍（美軍）。' },
@@ -27,29 +41,27 @@ export class MainService {
             { imgPath: 'img/homeland.png', name: '國土安全部', description: '美國境內的邊境管制、情報統籌、緊急應變以及防止恐怖活動。' }
         ];
 
-        return this.cabinetTree;
+        return cabinetTree;
     }
 
-    congressTree: TreeNode[];
+    // 立法節點
+    private getCongressTree(): TreeNode[] {
 
-    getCongressTree(): TreeNode[] {
-
-        this.congressTree = [
+        var congressTree: TreeNode[] = [
             { imgPath: 'img/representatives.png', name: '眾議院', description: '為美國國會兩院之一，另一院為參議院。' },
             { imgPath: 'img/senate.png', name: '參議院', description: '為美國國會兩院之一，另一院為眾議院。' }
         ];
 
-        return this.congressTree;
+        return congressTree;
     }
 
-    courtTree: TreeNode[];
+    // 司法節點
+    private getCourtTree(): TreeNode[] {
 
-    getCourtTree(): TreeNode[] {
-
-        this.courtTree = [
+        var courtTree: TreeNode[] = [
             { imgPath: 'img/court.png', name: '最高法院', description: '一般是指美國聯邦最高法院，是美國最高級別的聯邦法院。' }
         ];
 
-        return this.courtTree;
+        return courtTree;
     }
 }
