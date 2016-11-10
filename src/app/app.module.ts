@@ -4,29 +4,37 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { MainService } from './main/main.service';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { AboutComponent } from './about/about.component';
+import { MainDetailComponent } from './main/main-detail/main-detail.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainComponent,
-    AboutComponent,
-    MainComponent,
-    AboutComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot([
-      { path: 'main', component: MainComponent },
-      { path: 'about', component: AboutComponent },
-      { path: '', component: MainComponent }
-    ])
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        MainComponent,
+        AboutComponent,
+        MainComponent,
+        AboutComponent,
+        MainDetailComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        RouterModule.forRoot([
+            {
+                path: 'main', component: MainComponent, children: [
+                    { path: '' },
+                    { path: ':name', component: MainDetailComponent }
+                ]
+            },
+            { path: 'about', component: AboutComponent },
+            { path: '', component: MainComponent }
+        ])
+    ],
+    providers: [MainService],
+    bootstrap: [AppComponent],
 })
 export class AppModule { }

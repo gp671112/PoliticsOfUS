@@ -1,0 +1,7 @@
+li.media.active{
+    /*background-color: blue;*/
+}
+
+.node:hover {
+    background-color:lightgray;
+}

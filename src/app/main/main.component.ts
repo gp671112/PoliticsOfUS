@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { MainService } from './main.service';
 import { TreeRoot, TreeNode } from './Trees';
@@ -7,22 +8,24 @@ import { TreeRoot, TreeNode } from './Trees';
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
-  providers: [MainService]
+  providers: []
 })
 export class MainComponent implements OnInit {
 
-  mainService: MainService;
-
-  constructor(_mainService: MainService) {
-    this.mainService = _mainService;
-  }
+  constructor(
+    private mainService: MainService,
+    private router: Router) { }
 
   imgWidth: number;
   treeRoot: TreeRoot[];
 
   ngOnInit() {
-    this.imgWidth = 40;
+    this.imgWidth = 30;
     this.treeRoot = this.mainService.getTree();
+  }
+
+  onClick(node: TreeNode) {
+    this.router.navigate(['/main', node.name]);
   }
 }
 

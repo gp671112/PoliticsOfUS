@@ -6,18 +6,18 @@
 	<h2>美利堅合眾國政治體系 <small>Politics of USA</small></h2>
 </div>
 
-<div class="col-md-5">
+<div class="col-md-3">
 	<div *ngFor="let root of treeRoot">
 		<h3>{{ root.title }} <small>{{ root.small }}</small></h3>
 		<ul>
-			<li class="media" role="button" routerLink="" *ngFor="let node of root.nodes">
-				<a class="media-left"><img [src]="node.imgPath" [width]="imgWidth"></a>
-				<div class="media-body">
-					<h4 class="media-heading">{{ node.name }}</h4>
-					{{ node.description }}
-				</div>
+			<li class="node" role="button" (click)="onClick(node)" *ngFor="let node of root.nodes">
+				<p><img [src]="node.imgPath" [width]="imgWidth"> {{ node.name }}</p>
 			</li>
 		</ul>
 		<hr>
 	</div>
+</div>
+
+<div class="col-md-9">
+	<router-outlet></router-outlet>
 </div>
