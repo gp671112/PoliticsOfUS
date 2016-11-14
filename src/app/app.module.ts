@@ -26,12 +26,12 @@ import { MainDetailComponent } from './main/main-detail/main-detail.component';
         RouterModule.forRoot([
             {
                 path: 'main', component: MainComponent, children: [
-                    { path: '' },
+                    { path: '', redirectTo: '眾議院' },
                     { path: ':name', component: MainDetailComponent }
                 ]
             },
             { path: 'about', component: AboutComponent },
-            { path: '', component: MainComponent }
+            { path: '', redirectTo: 'main', pathMatch: 'full' }
         ])
     ],
     providers: [MainService],
