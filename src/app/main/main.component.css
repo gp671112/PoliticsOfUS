@@ -1,7 +1,7 @@
-li.media.active{
-    /*background-color: blue;*/
+.node{
+   transition: padding-left 0.2s ease;
 }
 
 .node:hover {
-    background-color:#e7e7e7;
+    padding-left: 10px;   
 }

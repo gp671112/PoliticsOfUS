@@ -1,3 +1,47 @@
-<p>
+<!--<p>
   about works!
-</p>
+</p>-->
+
+<div class="page-header">
+  <h2>關於本網站</h2>
+</div>
+
+<h4>創作來源</h4>
+<p>美國劇集-紙牌屋(House of cards)中提到相當多的政治術語，我相當喜歡這部劇集，為了能更融入劇情便上網查了些資料，因而對美國政治體系有初步的了解。</p>
+<br>
+
+<h4>框架及工具</h4>
+<ul>
+  <li>
+    <p>Angular2</p>
+  </li>
+  <li>
+    <p>Angular2-cli 1.0.0-beta18</p>
+  </li>
+  <li>
+    <p>VS Code 1.7.1</p>
+  </li>
+  <li>
+    <p>Bootstrap 3 CSS</p>
+  </li>
+</ul>
+<br>
+
+<h4>結構</h4>
+<ul>
+  <li>
+    <p>上方為nav為root路由，藉由router-outlet標籤顯示下方左側樹狀選單。</p>
+  </li>
+  <li>
+    <p>樹狀選單實作service class，並導入@angular/core - Injectable，使服務能在整個專案依賴注入。</p>
+  </li>
+  <li>
+    <p>左側選單為第二段children路由，router-outlet導向至詳細資料component。</p>
+  </li>
+  <li>
+    <p>第二段路由具有傳入參數:name，url列輸入正確名稱可導向，預期外的url指向"眾議院"。</p>
+  </li>
+  <li>
+    <p>預設路由 path: '**' 指向"眾議院"。</p>
+  </li>
+</ul>

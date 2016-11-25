@@ -18,7 +18,8 @@ export class MainDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       var name: string = params['name'];
-      this.selectedNode = this.mainService.getNodeByName(name);
+
+      this.selectedNode = this.mainService.getNodeByName(name) ? this.mainService.getNodeByName(name) : this.mainService.getNodeByName('眾議院');
     });
   }
 }
